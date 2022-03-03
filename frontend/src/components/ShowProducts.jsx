@@ -12,7 +12,7 @@ const ShowProducts = () => {
 
   const getAllProducts = async () => {
     const response = await axios.get('http://localhost:8000/api/v1/products');
-    setProducts(response);
+    setProducts(response.data);
   }
 
   const deleteProduct = async (id) => {
@@ -25,8 +25,8 @@ const ShowProducts = () => {
       <div className='d-grid gap-2'>
         <Link to='/create' className='btn btn-success btn-lg my-2 text-white'>Create</Link>
       </div>
-      <table className=''>
-        <thead>
+      <table className='table table-striped'>
+        <thead className='bg-primary text-white'>
           <tr>
             <th>DESCRIPTION</th>
             <th>PRICE</th>
@@ -43,7 +43,7 @@ const ShowProducts = () => {
                 <td>{product.stock}</td>
                 <td>
                   <Link to={`/edit/${product.id}`} className='btn btn-warning'>Edit</Link>
-                  <button onClick={() => deleteProduct(product.id)} className='btn btn-danger'>Delete</button>
+                  <button onClick={() => deleteProduct(product.id)} className='btn btn-danger mx-3'>Delete</button>
                 </td>
               </tr>
             ))
@@ -51,7 +51,7 @@ const ShowProducts = () => {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
 export default ShowProducts
