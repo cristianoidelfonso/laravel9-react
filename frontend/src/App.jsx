@@ -12,14 +12,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h3 className='text-white'>Laravel 9 API + ReactJS</h3>
       </header>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={ <ShowProducts />} />
-          <Route path='/create' element={ <CreateProduct />} />
-          <Route path='/edit/:id' element={ <EditProduct />} />
-        </Routes>
-      </BrowserRouter>
+      <main className='App-main'>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={ <ShowProducts />} />
+            <Route path='/create' element={ <CreateProduct />} />
+            <Route path='/edit/:id' element={ <EditProduct />} />
+          </Routes>
+        </BrowserRouter>
+      </main>
     </div>
   )
 }

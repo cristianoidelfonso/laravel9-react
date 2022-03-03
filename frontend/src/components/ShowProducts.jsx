@@ -22,8 +22,8 @@ const ShowProducts = () => {
 
   return (
     <div>
-      <div className='d-grid gap-2'>
-        <Link to='/create' className='btn btn-success btn-lg my-2 text-white'>Create</Link>
+      <div className=''>
+        <Link to='/create' className='btn btn-success btn-lg my-4 text-white w-25' style={{ float: 'right' }}>Create</Link>
       </div>
       <table className='table table-striped'>
         <thead className='bg-primary text-white'>
