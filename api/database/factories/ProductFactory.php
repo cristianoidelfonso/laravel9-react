@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     {
         return [
             'description' => $this->faker->sentence($nbWords = 4, $variableNbWords = true),
-            'price' => $this->faker->regexify('[0-9]{2,4}+,[0-9]{2}'),
+            'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 10000),
             'stock' => $this->faker->numberBetween($min = 1, $max = 100),
         ];
     }
