@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 
 const ShowProducts = () => {
 
@@ -23,7 +24,7 @@ const ShowProducts = () => {
   return (
     <div>
       <div className=''>
-        <Link to='/create' className='btn btn-success btn-lg my-4 text-white' style={{ float: 'right' }}>Create</Link>
+        <Link to='/create' className='btn btn-success btn-lg my-4 text-white' style={{ float: 'right' }}><FaPlus /> Create</Link>
       </div>
       <table className='table table-striped'>
         <thead className='bg-primary text-white'>
@@ -42,8 +43,8 @@ const ShowProducts = () => {
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
                 <td>
-                  <Link to={`/edit/${product.id}`} className='btn btn-warning'>Edit</Link>
-                  <button onClick={() => deleteProduct(product.id)} className='btn btn-danger mx-3'>Delete</button>
+                  <Link to={`/edit/${product.id}`} className='btn btn-warning'><FaEdit/> Edit</Link>
+                  <button onClick={() => deleteProduct(product.id)} className='btn btn-danger mx-3'><FaTrash /> Delete</button>
                 </td>
               </tr>
             ))
