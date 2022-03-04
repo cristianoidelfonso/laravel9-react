@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,12 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['auth' => 'auth', 'middleware' => 'api'], function ($router) {
-    Route::post('/login', \App\Http\Controllers\Auth\AuthController::class, 'login' );
-    Route::post('/logout', \App\Http\Controllers\Auth\AuthController::class, 'logout' );
-    Route::post('/refresh', \App\Http\Controllers\Auth\AuthController::class, 'refresh' );
-    Route::post('/me', \App\Http\Controllers\Auth\AuthController::class, 'me' );
-    Route::post('/register', \App\Http\Controllers\Auth\AuthController::class, 'register' );
+Route::group(['prefix' => '/v1/auth'], function () {
+    Route::post('/register', [AuthController::class, 'register'] );
+    Route::post('/login', [AuthController::class, 'login'] );
+    Route::post('/logout', [AuthController::class, 'logout'] );
+    Route::post('/refresh', [AuthController::class, 'refresh'] );
+    Route::post('/me', [AuthController::class, 'me'] );
 });
 
 Route::controller(ProductController::class)->prefix('v1')->group(function () {
