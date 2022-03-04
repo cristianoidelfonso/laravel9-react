@@ -16,6 +16,9 @@ Executar o composer install
 Gerar a chave da aplicação
 #### php artisan key:generate
 
+Gerar a chave secreta JWT
+#### php artisan jwt:secret
+
 Executar as migrations e os seeders
 #### php artisan migrate --seed
 
