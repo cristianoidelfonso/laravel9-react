@@ -23,7 +23,7 @@ const ShowProducts = () => {
   return (
     <div>
       <div className=''>
-        <Link to='/create' className='btn btn-success btn-lg my-4 text-white w-25' style={{ float: 'right' }}>Create</Link>
+        <Link to='/create' className='btn btn-success btn-lg my-4 text-white' style={{ float: 'right' }}>Create</Link>
       </div>
       <table className='table table-striped'>
         <thead className='bg-primary text-white'>
