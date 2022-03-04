@@ -20,12 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => '/v1/auth'], function () {
-    Route::post('/register', [AuthController::class, 'register'] );
-    Route::post('/login', [AuthController::class, 'login'] );
-    Route::post('/logout', [AuthController::class, 'logout'] );
-    Route::post('/refresh', [AuthController::class, 'refresh'] );
-    Route::post('/me', [AuthController::class, 'me'] );
+//
+
+Route::prefix('v1/auth')->controller(AuthController::class)->group( function () {
+    Route::post('/register', 'register' );
+    Route::post('/login', 'login' );
+    Route::post('/logout', 'logout' );
+    Route::post('/refresh', 'refresh' );
+    Route::post('/me', 'me' );
 });
 
 Route::controller(ProductController::class)->prefix('v1')->group(function () {
